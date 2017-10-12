@@ -19,6 +19,3 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 
 RUN mkdir /app
 WORKDIR /app
-
-ENTRYPOINT ["gradle"]
-CMD ["-version"]
