@@ -4,7 +4,7 @@ MAINTAINER Jan Mares <jan.mares@dtforce.com>
 ARG GRADLE_VERSION=3.2.1
 
 RUN apk update && \
-    apk add docker
+    apk add docker bash
 
 WORKDIR /usr/bin
 
