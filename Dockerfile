@@ -1,7 +1,7 @@
 # build ontop of official Java image
 FROM openjdk:8-jdk-alpine
 MAINTAINER Jan Mares <jan.mares@dtforce.com>
-ARG GRADLE_VERSION=4.4.1
+ARG GRADLE_VERSION=4.10.2
 
 ENV \
     BUILD_DEPS="gettext"  \
