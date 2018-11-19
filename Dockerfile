@@ -5,7 +5,7 @@ ARG GRADLE_VERSION=4.10.2
 
 ENV \
     BUILD_DEPS="gettext"  \
-    RUNTIME_DEPS="libintl py-pip tar bash docker unzip curl git"
+    RUNTIME_DEPS="libintl py-pip tar bash docker unzip curl git openssh-client"
 
 RUN \
     apk add --no-cache $RUNTIME_DEPS && \
