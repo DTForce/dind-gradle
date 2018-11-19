@@ -5,7 +5,7 @@ ARG GRADLE_VERSION=4.4.1
 
 ENV \
     BUILD_DEPS="gettext"  \
-    RUNTIME_DEPS="libintl py-pip tar bash docker unzip curl"
+    RUNTIME_DEPS="libintl py-pip tar bash docker unzip curl git"
 
 RUN \
     apk add --no-cache $RUNTIME_DEPS && \
@@ -28,3 +28,4 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 
 RUN mkdir /app
 WORKDIR /app
+
