@@ -1,5 +1,5 @@
 # build ontop of official Java image
-FROM openjdk:8-jdk-alpine
+FROM openjdk:11-jdk-slim
 MAINTAINER Jan Mares <jan.mares@dtforce.com>
 ARG GRADLE_VERSION=4.10.2
 
