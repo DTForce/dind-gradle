@@ -4,14 +4,16 @@ MAINTAINER Jan Mares <jan.mares@dtforce.com>
 ARG GRADLE_VERSION=4.10.2
 
 ENV \
-    BUILD_DEPS="gettext"  \
-    RUNTIME_DEPS="libintl py-pip tar bash docker unzip curl git openssh-client"
+    BUILD_DEPS="apt-transport-https gnupg2 software-properties-common"  \
+    RUNTIME_DEPS="gettext python-pip tar bash docker unzip curl git openssh-client ca-certificates docker.io"
 
 RUN \
-    apk add --no-cache $RUNTIME_DEPS && \
-    apk add --no-cache --virtual build_deps $BUILD_DEPS &&  \
+    apt-get update && \
+    apt-get install -y $BUILD_DEPS &&  \
+    apt-get install -y $RUNTIME_DEPS && \
     cp /usr/bin/envsubst /usr/local/bin/envsubst && \
-    apk del build_deps
+    apt-get remove -y $BUILD_DEPS && \
+    apt-get clean
 
 RUN pip install 'docker-compose==1.16.1'
 
