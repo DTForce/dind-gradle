@@ -1,7 +1,7 @@
 # build ontop of official Java image
 FROM openjdk:11-jdk-slim
 MAINTAINER Jan Mares <jan.mares@dtforce.com>
-ARG GRADLE_VERSION=4.10.2
+ARG GRADLE_VERSION=5.0
 
 ENV \
     BUILD_DEPS="apt-transport-https gnupg2 software-properties-common"  \
