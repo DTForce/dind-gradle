@@ -1,5 +1,5 @@
 # build ontop of official Java image
-FROM gradle:5.4-jdk11-slim
+FROM gradle:6.4.1-jdk14
 USER root
 
 ENV \
