@@ -1,18 +1,17 @@
-# build ontop of official Java image
-FROM gradle:7.1.1-jdk16
+FROM gradle:7.3.3-jdk17-alpine
 USER root
+    # BUILD_DEPS="apt-transport-https gnupg2 software-properties-common"  \
+    # RUNTIME_DEPS="tar docker unzip curl git openssh-client ca-certificates docker-compose gettext-base"
 
 ENV \
-    BUILD_DEPS="apt-transport-https gnupg2 software-properties-common"  \
-    RUNTIME_DEPS="tar docker unzip curl git openssh-client ca-certificates docker-compose gettext-base"
+    BUILD_DEPS="gettext"  \
+    RUNTIME_DEPS="libintl docker-cli python3 py3-pip docker-compose tar unzip curl git openssh-client ca-certificates graphviz"
 
-RUN \
-    apt-get update && \
-    apt-get install -y $BUILD_DEPS &&  \
-    apt-get install -y $RUNTIME_DEPS && \
+RUN set -x && \
+    apk add --update $RUNTIME_DEPS && \
+    apk add --update --virtual build_deps $BUILD_DEPS &&  \
     cp /usr/bin/envsubst /usr/local/bin/envsubst && \
-    apt-get remove -y $BUILD_DEPS && \
-    apt-get clean
+    apk del build_deps
 
 RUN mkdir /app
 WORKDIR /app
