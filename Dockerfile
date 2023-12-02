@@ -1,4 +1,4 @@
-FROM gradle:7.3.3-jdk17-alpine
+FROM gradle:8.2.1-jdk17-alpine
 USER root
     # BUILD_DEPS="apt-transport-https gnupg2 software-properties-common"  \
     # RUNTIME_DEPS="tar docker unzip curl git openssh-client ca-certificates docker-compose gettext-base"
