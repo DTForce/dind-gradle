@@ -10,15 +10,15 @@ Docker in docker with Gradle. Used for CI.
 
 ## Howto (with example)
 
-Example based on Gradle 8.10.2 with Alpine Linux and JDK 17
+Example based on Gradle 8.14.4 with Alpine Linux and JDK 21
 
-1. Touch the `Dockerfile` in this repo accordingly (i.e. use `gradle:8.10.2-jdk17-alpine` in `FROM`)
+1. Touch the `Dockerfile` in this repo accordingly (i.e. use `gradle:8.14.4-jdk21-alpine` in `FROM`)
 
 2. Build and push (change the `dtforce` for your own dockerhub organization)
 
 ```shell
-docker build . -t dtforce/dind-gradle:v8.10.2-alp-jdk17-py
-docker push dtforce/dind-gradle:v8.10.2-alp-jdk17-py
+docker build . -t dtforce/dind-gradle:v8.14.4-alpine-jdk21-py
+docker push dtforce/dind-gradle:v8.14.4-alpine-jdk21-py
 ```
 
-3. Use the built image in you CI/CD pipeline and enjoy 
+3. Use the built image in you CI/CD pipeline and enjoy
