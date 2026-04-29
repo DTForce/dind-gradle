@@ -21,4 +21,10 @@ docker build . -t dtforce/dind-gradle:v8.14.4-alpine-jdk21-py
 docker push dtforce/dind-gradle:v8.14.4-alpine-jdk21-py
 ```
 
+**Mac Silicon (Apple M-series) note:** On ARM64 machines, `docker build` produces ARM64 images by default. CI environments typically require AMD64 images. Use `buildx` to target the correct platform:
+
+```shell
+docker buildx build --platform linux/amd64 . -t dtforce/dind-gradle:v8.14.4-alpine-jdk21-py --push
+```
+
 3. Use the built image in you CI/CD pipeline and enjoy
