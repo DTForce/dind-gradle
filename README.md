@@ -10,21 +10,21 @@ Docker in docker with Gradle. Used for CI.
 
 ## Howto (with example)
 
-Example based on Gradle 8.14.4 with Alpine Linux and JDK 21
+Example based on Gradle 9.8.0 with Alpine Linux and JDK 25
 
-1. Touch the `Dockerfile` in this repo accordingly (i.e. use `gradle:8.14.4-jdk21-alpine` in `FROM`)
+1. Touch the `Dockerfile` in this repo accordingly (i.e. use `gradle:9.8.0-jdk25-alpine` in `FROM`)
 
 2. Build and push (change the `dtforce` for your own dockerhub organization)
 
 ```shell
-docker build . -t dtforce/dind-gradle:v8.14.4-alpine-jdk21-py
-docker push dtforce/dind-gradle:v8.14.4-alpine-jdk21-py
+docker build . -t dtforce/dind-gradle:v9.8.0-alpine-jdk25-py
+docker push dtforce/dind-gradle:v9.8.0-alpine-jdk25-py
 ```
 
 **Mac Silicon (Apple M-series) note:** On ARM64 machines, `docker build` produces ARM64 images by default. CI environments typically require AMD64 images. Use `buildx` to target the correct platform:
 
 ```shell
-docker buildx build --platform linux/amd64 . -t dtforce/dind-gradle:v8.14.4-alpine-jdk21-py --push
+docker buildx build --platform linux/amd64 . -t dtforce/dind-gradle:v9.8.0-alpine-jdk25-py --push
 ```
 
 3. Use the built image in you CI/CD pipeline and enjoy
